@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Input } from "@angular/core";
+
+import { Job } from "../job";
 
 @Component({
-  selector: 'app-card',
+  selector: "app-card",
   imports: [],
-  templateUrl: './card.html',
-  styleUrl: './card.scss'
+  templateUrl: "./card.html",
+  styleUrl: "./card.scss",
 })
 export class Card {
-
+  @Input({ required: true }) jobItems!: Job;
 }

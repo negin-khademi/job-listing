@@ -5,6 +5,9 @@ import data from "../data.json";
 @Injectable({
   providedIn: "root",
 })
-export class Data {
+export class DataService {
   jobList: Job[] = data;
+  getJobs(): Job[] {
+    return this.jobList;
+  }
 }
