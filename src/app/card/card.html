@@ -1,5 +1,5 @@
 <div
-  class="relative bg-white w-full md:w-full rounded-lg shadow-lg p-5 flex flex-col md:flex-row md:items-center md:justify-between border-l-4 mb-10"
+  class="relative bg-white w-full md:w-full rounded-lg shadow-lg p-5 flex flex-col md:flex-row md:items-center md:justify-between lg:justify-normal border-l-4 mb-10"
   [ngClass]="{
     'border-greens-400': jobItems.featured,
     'border-transparent': !jobItems.featured
@@ -10,7 +10,7 @@
   </div>
 
   <!-- Job Info -->
-  <div class="mt-[5%] md:mt-0  flex flex-col gap-2 hello">
+  <div class="mt-[5%] md:mt-0 lg:ml-4  flex flex-col gap-2 ">
     <!-- Company & Tags -->
     <div class="flex items-center gap-2 flex-wrap ">
       <p class="text-greens-400 font-bold text-sm mr-4">{{ jobItems.company }}</p>
@@ -43,7 +43,7 @@
   <hr class="border-grays-300 w-full my-5 md:hidden" />
 
   <!-- Skills -->
-  <div class="flex flex-wrap gap-5 md:gap-x-2 md:gap-y-0  md:ml-0">
+  <div class="flex flex-wrap gap-5 md:gap-x-2 md:gap-y-0  md:ml-0  lg:ml-auto">
     <span
       class="p-2 text-sm bg-greens-50 text-greens-400 font-bold rounded-md cursor-pointer hover:bg-greens-400 hover:text-white transition">
       {{ jobItems.role }}
