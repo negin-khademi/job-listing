@@ -44,21 +44,21 @@
 
   <!-- Skills -->
   <div class="flex flex-wrap gap-5 md:gap-x-2 md:gap-y-0  md:ml-0  lg:ml-auto">
-    <span
+    <span (click)="selectItems(jobItems.role)"
       class="p-2 text-sm bg-greens-50 text-greens-400 font-bold rounded-md cursor-pointer hover:bg-greens-400 hover:text-white transition">
       {{ jobItems.role }}
     </span>
-    <span
+    <span (click)="selectItems(jobItems.level)"
       class="p-2 bg-greens-50 text-sm text-greens-400 font-bold rounded-md cursor-pointer hover:bg-greens-400 hover:text-white transition">
       {{ jobItems.level }}
     </span>
     @for (lang of jobItems.languages; track $index) {
-    <span
+    <span (click)="selectItems(lang)"
       class="p-2 text-sm font-bold bg-greens-50 text-greens-400  rounded-md cursor-pointer hover:bg-greens-400 hover:text-white transition">
       {{ lang }}
     </span>}
     @for (item of jobItems.tools; track $index) {
-    <span
+    <span (click)="selectItems(item)"
       class="p-2 bg-greens-50 text-greens-400 font-bold rounded-md cursor-pointer hover:bg-greens-400 hover:text-white transition">
       {{ item }}
     </span>

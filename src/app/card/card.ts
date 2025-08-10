@@ -11,4 +11,10 @@ import { Job } from "../job";
 })
 export class Card {
   @Input({ required: true }) jobItems!: Job;
+  items: string[] = [];
+
+  selectItems(e: any) {
+    this.items.push(e);
+    console.log("hetto", this.items);
+  }
 }
