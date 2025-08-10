@@ -1,1 +1,88 @@
-<p>{{jobItems.id}}</p>
+<!-- <div class="relative h-56 bg-white w-[95%]">
+  <div class="absolute -mt-[10%] md:mt-0 ml-5 md:ml-0">
+    <img src={{jobItems.logo}} alt="" class="w-16">
+  </div>
+  <div class="mt-[15%] ml-5 font-bold">
+    <p class="text-greens-400">{{jobItems.company}}</p>
+    <p class="my-3">{{jobItems.position}}</p>
+    <div class="text-grays-400 flex gap-3">
+      <p>{{jobItems.postedAt}}</p>
+      <ul class="flex">
+        <li class="ml-0">{{jobItems.contract}}</li>
+        <li class="ml-3">{{jobItems.location}}</li>
+      </ul>
+    </div>
+    <hr class="border-grays-400 w-[95%] my-5" />
+    @for (item of jobItems.languages; track $index) {
+    <span class="p-2 bg-greens-50 text-greens-400 mx-2 rounded-md">{{item}}</span>
+    }
+  </div>
+</div> -->
+
+<div
+  class="relative bg-white w-full md:w-full rounded-lg shadow-lg p-5 flex flex-col md:flex-row md:items-center md:justify-between border-l-4 mb-10"
+  [ngClass]="{
+    'border-greens-400': jobItems.featured,
+    'border-transparent': !jobItems.featured
+  }">
+  <!-- Company Logo -->
+  <div class="absolute -mt-[12%] md:static md:mt-0 ml-1 md:ml-0">
+    <img [src]="jobItems.logo" alt="" class="w-12 h-12 object-contain" />
+  </div>
+
+  <!-- Job Info -->
+  <div class="mt-[5%] md:mt-0 md:ml-0 flex flex-col gap-2">
+    <!-- Company & Tags -->
+    <div class="flex items-center gap-2 flex-wrap">
+      <p class="text-greens-400 font-bold text-sm mr-4">{{ jobItems.company }}</p>
+      @if (jobItems.new) {
+      <span class="bg-greens-400 text-white text-xs uppercase px-2 py-1 rounded-full">New!</span>
+      }
+
+      @if (jobItems.featured) {
+      <span class="bg-gray-800 text-white text-xs uppercase px-2 py-1 rounded-full">Featured
+      </span>
+      }
+    </div>
+
+    <!-- Position -->
+    <p class="font-bold text-sm hover:text-greens-400 cursor-pointer">
+      {{ jobItems.position }}
+    </p>
+
+    <!-- Details -->
+    <div class="text-grays-400 flex gap-3 text-sm">
+      <p>{{ jobItems.postedAt }}</p>
+      <span>&bull;</span>
+      <p>{{ jobItems.contract }}</p>
+      <span>&bull;</span>
+      <p>{{ jobItems.location }}</p>
+    </div>
+  </div>
+
+  <!-- Divider (Mobile Only) -->
+  <hr class="border-grays-300 w-full my-5 md:hidden" />
+
+  <!-- Skills -->
+  <div class="flex flex-wrap gap-5  md:ml-0">
+    <span
+      class="p-2 text-sm bg-greens-50 text-greens-400 font-bold rounded-md cursor-pointer hover:bg-greens-400 hover:text-white transition">
+      {{ jobItems.role }}
+    </span>
+    <span
+      class="p-2 bg-greens-50 text-sm text-greens-400 font-bold rounded-md cursor-pointer hover:bg-greens-400 hover:text-white transition">
+      {{ jobItems.level }}
+    </span>
+    @for (lang of jobItems.languages; track $index) {
+    <span
+      class="p-2 text-sm font-bold bg-greens-50 text-greens-400  rounded-md cursor-pointer hover:bg-greens-400 hover:text-white transition">
+      {{ lang }}
+    </span>}
+    @for (item of jobItems.tools; track $index) {
+    <span
+      class="p-2 bg-greens-50 text-greens-400 font-bold rounded-md cursor-pointer hover:bg-greens-400 hover:text-white transition">
+      {{ item }}
+    </span>
+    }
+  </div>
+</div>
