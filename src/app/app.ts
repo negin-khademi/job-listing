@@ -21,8 +21,8 @@ export class App {
   }
 
   updateSelectedItems(items: any) {
-    console.log("chydgcyd");
-    this.selectedItems.push(items);
-    console.log(this.selectedItems);
+    if (!this.selectedItems.includes(items)) {
+      this.selectedItems.push(items);
+    }
   }
 }

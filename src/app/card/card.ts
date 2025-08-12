@@ -15,6 +15,5 @@ export class Card {
 
   selectItems(e: any) {
     this.selectedItemChange.emit(e);
-    console.log(e);
   }
 }
