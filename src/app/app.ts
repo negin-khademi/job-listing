@@ -14,8 +14,15 @@ import { RouterOutlet } from "@angular/router";
 export class App {
   protected readonly title = signal("job-listing");
   list: Job[] = [];
+  selectedItems: any[] = [];
   constructor(private dataService: DataService) {}
   ngOnInit(): void {
     this.list = this.dataService.getJobs(); // Call service method
+  }
+
+  updateSelectedItems(items: any) {
+    console.log("chydgcyd");
+    this.selectedItems.push(items);
+    console.log(this.selectedItems);
   }
 }

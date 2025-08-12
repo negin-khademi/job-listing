@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 
 import { CommonModule } from "@angular/common";
 import { Job } from "../job";
@@ -11,10 +11,10 @@ import { Job } from "../job";
 })
 export class Card {
   @Input({ required: true }) jobItems!: Job;
-  items: string[] = [];
+  @Output() selectedItemChange = new EventEmitter<any[]>();
 
   selectItems(e: any) {
-    this.items.push(e);
-    console.log("hetto", this.items);
+    this.selectedItemChange.emit(e);
+    console.log(e);
   }
 }

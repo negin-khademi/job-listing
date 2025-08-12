@@ -2,7 +2,7 @@
   <header class="header h-40"></header>
   <div class="bg-greens-50 pt-12 flex flex-col px-6">
     @for (item of list; track item.id) {
-    <app-card [jobItems]="item" />}
+    <app-card [jobItems]="item" (selectedItemChange)="updateSelectedItems($event)" />}
   </div>
 </main>
 
