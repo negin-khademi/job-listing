@@ -25,4 +25,8 @@ export class App {
       this.selectedItems.push(items);
     }
   }
+
+  removeItem(item: string) {
+    this.selectedItems = this.selectedItems.filter((i) => i !== item);
+  }
 }
