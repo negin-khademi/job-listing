@@ -1,13 +1,14 @@
 import { Component, signal } from "@angular/core";
 
 import { Card } from "./card/card";
+import { CommonModule } from "@angular/common";
 import { DataService } from "./data";
 import { Job } from "./job";
 import { RouterOutlet } from "@angular/router";
 
 @Component({
   selector: "app-root",
-  imports: [RouterOutlet, Card],
+  imports: [RouterOutlet, Card, CommonModule],
   templateUrl: "./app.html",
   styleUrl: "./app.scss",
 })

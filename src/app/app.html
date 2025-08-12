@@ -1,11 +1,13 @@
 <main class="bg-greens-400">
-  <header class="header h-40"></header>
+  <header class="header h-40 relative"></header>
 
-  <div class="bg-greens-50 pt-12 flex flex-col gap-y-5 px-6">
+  <div class="bg-greens-50 pt-12 flex flex-col px-6">
 
-    <div class="flex gap-3 rounded-lg bg-white py-3 px-6 ">
+    <div class=" flex gap-3 rounded-lg py-3 px-6 -mt-[15%] md:-mt-[10%] lg:-mt-[7%] absolute "
+      [ngClass]="selectedItems.length > 0 ? ['bg-white'] : []">
+
       @for (item of selectedItems; track $index) {
-      <div class=" bg-greens-50 text-greens-400 font-bold flex rounded-sm">
+      <div class=" bg-greens-50 text-greens-400 font-bold flex rounded-sm ">
         <span class="px-2 py-1">
           {{ item }}
         </span>
@@ -16,8 +18,10 @@
       </div>
       }
     </div>
-    @for (item of list; track item.id) {
-    <app-card [jobItems]="item" (selectedItemChange)="updateSelectedItems($event)" />}
+    <div>
+      @for (item of list; track item.id) {
+      <app-card [jobItems]="item" (selectedItemChange)="updateSelectedItems($event)" />}
+    </div>
   </div>
 </main>
 
