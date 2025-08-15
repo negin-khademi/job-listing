@@ -24,14 +24,23 @@ export class App {
   }
 
   updateSelectedItems(items: any) {
-    // this.filterList = this.list.filter(
-    //   (itm) => itm.level === items || itm.role === items
-    // );
+    if (!this.selectedItems.includes(items)) {
+      this.selectedItems.push(items);
+    }
 
+    this.applyFilter();
+  }
+
+  removeItem(item: string) {
+    this.selectedItems = this.selectedItems.filter((i) => i !== item);
+
+    this.applyFilter(); // Reapply the filter after removing an item
+  }
+
+  applyFilter() {
     this.filterList = this.list.filter((job) => {
-      if (!this.selectedItems.includes(items)) {
-        this.selectedItems.push(items);
-      }
+      // If no items are selected, return all jobs
+      if (this.selectedItems.length === 0) return true;
 
       // Check if every selected item matches any of the job's properties
       return this.selectedItems.every(
@@ -42,9 +51,5 @@ export class App {
           job.tools.includes(selected)
       );
     });
-  }
-
-  removeItem(item: string) {
-    this.selectedItems = this.selectedItems.filter((i) => i !== item);
   }
 }
