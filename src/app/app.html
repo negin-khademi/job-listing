@@ -19,7 +19,7 @@
       }
     </div>
     <div>
-      @for (item of list; track item.id) {
+      @for (item of filterList; track item.id) {
       <app-card [jobItems]="item" (selectedItemChange)="updateSelectedItems($event)" />}
     </div>
   </div>
