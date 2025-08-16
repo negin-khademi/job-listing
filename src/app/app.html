@@ -1,28 +1,38 @@
 <main class="bg-greens-400">
   <header class="header h-40 relative"></header>
 
-  <div class="bg-greens-50 pt-12 flex flex-col px-6">
+  <div class="bg-greens-50 pt-12 flex flex-col px-6 min-h-dvh">
 
-    <div class=" flex gap-3 rounded-lg py-3 px-6 -mt-[15%] md:-mt-[10%] lg:-mt-[7%] absolute "
-      [ngClass]="selectedItems.length > 0 ? ['bg-white'] : []">
+    <div class="w-full rounded-lg py-3 px-6 z-10" [ngClass]="selectedItems.length > 0 ?
+      ['bg-white','flex','items-center','justify-between','flex-wrap','-mt-[19%]','md:-mt-[10%]','lg:-mt-[7%]','xl:-mt-[5%]']
+      : ['hidden']">
 
-      @for (item of selectedItems; track $index) {
-      <div class=" bg-greens-50 text-greens-400 font-bold flex rounded-sm ">
-        <span class="px-2 py-1">
-          {{ item }}
-        </span>
-        <span (click)="removeItem(item)"
-          class="cursor-pointer font-bold text-white bg-greens-400 flex items-center justify-center px-2 py-1 rounded-r-sm hover:bg-black">
-          ×
-        </span>
+      <!-- Left: tags -->
+      <div class="flex flex-wrap gap-3">
+        @for (item of selectedItems; track $index) {
+        <div class="bg-greens-50 text-greens-400 font-bold flex rounded-sm">
+          <span class="px-2 py-1">{{ item }}</span>
+          <span (click)="removeItem(item)"
+            class="cursor-pointer font-bold text-white bg-greens-400 flex items-center justify-center px-2 py-1 rounded-r-sm hover:bg-black">
+            ×
+          </span>
+        </div>
+        }
       </div>
+
+      <!-- Right: Clear button -->
+      <button (click)="clearAll()" class="text-greens-400 font-semibold hover:underline mt-3 md:mt-0">
+        Clear
+      </button>
+    </div>
+
+    <div class="mt-[8%] md:mt-[5%]">
+      @for (item of filterList; track item.id) {
+      <app-card [jobItems]="item" (selectedItemChange)="updateSelectedItems($event)" />
       }
     </div>
-    <div>
-      @for (item of filterList; track item.id) {
-      <app-card [jobItems]="item" (selectedItemChange)="updateSelectedItems($event)" />}
-    </div>
   </div>
+
 </main>
 
 

@@ -52,4 +52,8 @@ export class App {
       );
     });
   }
+
+  clearAll() {
+    this.selectedItems = [];
+  }
 }
