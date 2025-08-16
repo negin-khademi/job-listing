@@ -55,5 +55,6 @@ export class App {
 
   clearAll() {
     this.selectedItems = [];
+    this.applyFilter();
   }
 }
