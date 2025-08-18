@@ -1,4 +1,4 @@
-<main class="bg-greens-400">
+<main class="bg-greens-400 ">
   <header class="header h-40 relative"></header>
 
   <div class="bg-greens-50 pt-12 flex flex-col px-6 min-h-dvh">
@@ -26,7 +26,7 @@
       </button>
     </div>
 
-    <div class="mt-[8%] md:mt-[5%]">
+    <div class="mt-[8%] md:mt-[5%] md:w-[90%] md:mx-auto">
       @for (item of filterList; track item.id) {
       <app-card [jobItems]="item" (selectedItemChange)="updateSelectedItems($event)" />
       }
