@@ -1,7 +1,7 @@
 import { Component, signal } from "@angular/core";
 
-import { Card } from "./card/card";
 import { CommonModule } from "@angular/common";
+import { Card } from "./card/card";
 import { DataService } from "./data";
 import { Job } from "./job";
 
@@ -16,7 +16,19 @@ export class App {
   list: Job[] = [];
   filterList: Job[] = [];
   selectedItems: any[] = [];
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService) {
+    // Check if the user prefers dark mode
+    const prefersDarkMode = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+
+    // Apply the 'dark' class to <html> or <body> based on system preference
+    if (prefersDarkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }
   ngOnInit(): void {
     this.list = this.dataService.getJobs(); // Call service method
     this.filterList = this.list;
